@@ -12,15 +12,11 @@ class Produto extends Component {
             "Nome": null,
             "Descricao": null,
             "Valor": 0,
-            "Imagem": Pao,
+            "Imagem": null,
         };
     };
     componentDidMount(){
-        fetch({"Nome": "Pão",
-        "Descricao": "Produto1",
-        "Valor": 15,
-        "Imagem": Pao,
-    }).then(resultado => resultado.json().then(dados =>this.setState({dados})));   
+        fetch().then(resultado => resultado.json().then(dados =>this.setState({dados})));   
     }
     render() {
         return (
