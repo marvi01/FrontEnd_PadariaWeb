@@ -24,16 +24,20 @@ class MenuSuperior extends Component {
       <li className="nav-item">
       <Link  className="navbar-brand" to="/Vendas"> Vendas </Link>
       </li>
+      <li className="nav-item">
+      <Link  className="navbar-brand" to="/Produto"> Produtos </Link>
+      </li>
     </ul>
    
     
-    <form className="form-inline my-2 my-lg-0">
+    
+  </div>
+  <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Procurar" aria-label="Search"/>
       <button className="btn btn-outline-dark" type="submit">⌕</button>
       <Link to="/Login" ><img alt='some value' className="figuras " src={log} /></Link>
 
     </form>
-  </div>
 </nav>
 </div>
           /*  <header>

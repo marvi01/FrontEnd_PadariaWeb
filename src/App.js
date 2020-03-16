@@ -9,6 +9,7 @@ import MenuPrincipal from './Components/MenuPrincipal/MenuPrincipal'
 import Login from './Components/Login/Login';
 import CadFunc from './Components/Funcionarios/CadastrarFuncionario/CadFunc';
 import { Switch, Route } from 'react-router-dom';
+import Produto from './Components/Produto';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path ="/" exact component = {MenuPrincipal}/>
         <Route path ="/Funcionarios" exact component = {Funcionarios} />
         <Route path = "/Funcionarios/CadastrarFuncionario" component ={CadFunc} />
+        <Route path ="/Produto" exact component = {Produto} />
         <div></div>
       </Switch>
       </div>

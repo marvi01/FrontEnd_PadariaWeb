@@ -1,0 +1,9 @@
+.tamanho{
+    height: 15%;
+    width: 15%;
+    margin-left: 10px;
+    padding: 5px;
+    border-color: grey;
+    border-radius: 5px;
+    border-width: 10px;
+}
