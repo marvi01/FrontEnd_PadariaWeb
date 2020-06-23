@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './MenuSuperior.css';
 import log from '../../imagens/log.jpg';
+//import logo from '../../imagens/LogoPadaria.png'
 import { Link } from 'react-router-dom';
+import Carro from '../../imagens/carro.png'
 class MenuSuperior extends Component {
     render() {
         return (
             <div className= "headerpadrao"> 
-            <nav  className="navbar navbar-expand-lg navbar-light bg-light headerpadrao">
-            <Link to="/"><h2 className="titulo">Dona Formiga</h2></Link>
+            <nav  className="navbar navbar-expand-lg navbar-light bg-light headerpadrao ">
+          
+           <Link to="/"><h2 className="titulo">Dona Formiga</h2></Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -25,7 +28,7 @@ class MenuSuperior extends Component {
       <Link  className="navbar-brand" to="/Vendas"> Vendas </Link>
       </li>
       <li className="nav-item">
-      <Link  className="navbar-brand" to="/Produto"> Produtos </Link>
+      <Link  className="navbar-brand" to="/Produtos"> Produtos </Link>
       </li>
     </ul>
    
@@ -33,6 +36,7 @@ class MenuSuperior extends Component {
     
   </div>
   <form className="form-inline my-2 my-lg-0">
+  <Link to="/Carrinho" ><img alt='some value' className="figuras " src={Carro} /></Link>
       <input className="form-control mr-sm-2" type="search" placeholder="Procurar" aria-label="Search"/>
       <button className="btn btn-outline-dark" type="submit">⌕</button>
       <Link to="/Login" ><img alt='some value' className="figuras " src={log} /></Link>
@@ -42,6 +46,7 @@ class MenuSuperior extends Component {
 </div>
           /*  <header>
                 <div >
+                <img  src={logo} className=" titulo img-fluid rounded float-left " alt="Responsive image"></img>
                     <Link to="/"><h2 className="titulo">Ferias</h2></Link>
 
                     <div className="chave">

@@ -10,6 +10,12 @@
     position: relative;
     left: 35%
 }
+.texto{
+    position: relative;
+    left: 0%;
+    float: right;
+    padding-bottom: 2%;
+}
 h3{
     font-style: italic;
 }

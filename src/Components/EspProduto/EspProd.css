@@ -1,0 +1,66 @@
+
+.direita{
+    float:left;
+}
+.formula{
+    color: black;
+    width: max-content;
+    height: auto;
+    padding: 5%;
+}
+.sub{
+    text-align: left;
+    position: relative;
+    bottom: 5%;
+}
+.baixo{
+    float:inline-start;
+}
+.titulos{
+    margin-top: -8%;
+    height: auto;
+    width: 50%;
+    color: black;
+    position: relative; bottom: 10%; 
+    margin-bottom:5%;
+    float: left;
+    margin-left: 2%;
+    margin-top: auto;
+    margin-right: 2%;
+}
+.inputss{
+    width: auto;
+    height: auto;
+    padding-right:10%;
+
+
+}
+label{
+    margin: 2%;
+}
+fieldset{
+  border: 2px groove (internal value);
+  border-radius: 30px;
+  background-color: whitesmoke;
+  position: absolute;
+  left: 2%;
+}
+.posicao{
+    padding-left: 3%;
+    padding-right: 2%;
+}
+.carro{
+    width: 10%;
+    height: min-content;
+    margin: auto;
+
+}
+.ima{
+    height: min-content;
+    margin-top: 4%;
+    float: right;
+    margin-bottom: 2%;
+    position: relative;
+    
+    
+}

@@ -9,7 +9,10 @@ import MenuPrincipal from './Components/MenuPrincipal/MenuPrincipal'
 import Login from './Components/Login/Login';
 import CadFunc from './Components/Funcionarios/CadastrarFuncionario/CadFunc';
 import { Switch, Route } from 'react-router-dom';
-import Produto from './Components/Produto';
+import Produto from './Components/Produto/Produto';
+import EspProduto from './Components/EspProduto/EspProd';
+import Carrinho from './Components/Carrinho/Carrinho';
+import Cadastro from './Components/Cadastro '
 
 function App() {
   return (
@@ -23,7 +26,10 @@ function App() {
         <Route path ="/" exact component = {MenuPrincipal}/>
         <Route path ="/Funcionarios" exact component = {Funcionarios} />
         <Route path = "/Funcionarios/CadastrarFuncionario" component ={CadFunc} />
-        <Route path ="/Produto" exact component = {Produto} />
+        <Route path ="/Produtos" exact component = {Produto} />
+        <Route path = "/Produtos/:id" exact component = {EspProduto}/>
+        <Route path = "/Carrinho" exact component= {Carrinho}/>
+        <Route path = "/Cadastro" exact component= {Cadastro}/>
         <div></div>
       </Switch>
       </div>

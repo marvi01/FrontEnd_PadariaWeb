@@ -6,8 +6,8 @@ class Funcionarios extends Component {
         return (
             <div>
                 <fieldset className="tabela">
-                <table class="table ">
-                    <thead class="thead-dark">
+                <table className="table ">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">Codigo</th>
                             <th scope="col">Nome</th>
@@ -24,7 +24,7 @@ class Funcionarios extends Component {
                             <td>R$ 1000,00</td>
                             <td>3%</td>
                             <td>111111</td>
-                            <td><button type="button" class="btn btn-outline-secondary espaco" >Editar</button><button type="button" class="btn btn-outline-danger espaco">  Deletar</button></td>
+                            <td><button type="button" className="btn btn-outline-secondary espaco" >Editar</button><button type="button" className="btn btn-outline-danger espaco">  Deletar</button></td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -32,7 +32,7 @@ class Funcionarios extends Component {
                             <td>R$ 1100,00</td>
                             <td>4%</td>
                             <td>222222</td>
-                            <td><button type="button" class="btn btn-outline-secondary espaco" >Editar</button><button type="button" class="btn btn-outline-danger espaco">  Deletar</button></td>
+                            <td><button type="button" className="btn btn-outline-secondary espaco" >Editar</button><button type="button" className="btn btn-outline-danger espaco">  Deletar</button></td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -40,7 +40,7 @@ class Funcionarios extends Component {
                             <td>R$ 1200,00</td>
                             <td>2%</td>
                             <td>333333</td>
-                            <td><button type="button" class="btn btn-outline-secondary espaco" >Editar</button><button type="button" class="btn btn-outline-danger espaco">  Deletar</button></td>
+                            <td><button type="button" className="btn btn-outline-secondary espaco" >Editar</button><button type="button" className="btn btn-outline-danger espaco">  Deletar</button></td>
                         </tr>
                         <tr>
                             <th scope="row">4</th>
@@ -48,13 +48,13 @@ class Funcionarios extends Component {
                             <td>R$ 998,00</td>
                             <td>3%</td>
                             <td>444444</td>
-                            <td><button type="button" class="btn btn-outline-secondary espaco" >Editar</button><button type="button" class="btn btn-outline-danger espaco">  Deletar</button></td>
+                            <td><button type="button" className="btn btn-outline-secondary espaco" >Editar</button><button type="button" className="btn btn-outline-danger espaco">  Deletar</button></td>
                         </tr>
                     </tbody>
                 </table>
                 
                 </fieldset>
-                <Link to="/Funcionarios/CadastrarFuncionario" type="button" class="btn btn-success cadastro">Cadastrar novo Funcionario</Link>
+                <Link to="/Funcionarios/CadastrarFuncionario" type="button" className="btn btn-success cadastro">Cadastrar novo Funcionario</Link>
             </div>
         )
     }
