@@ -12,18 +12,21 @@ import { Switch, Route } from 'react-router-dom';
 import Produto from './Components/Produto/Produto';
 import EspProduto from './Components/EspProduto/EspProd';
 import Carrinho from './Components/Carrinho/Carrinho';
-import Cadastro from './Components/Cadastro '
+import Cadastro from './Components/Cadastro ';
+import HeaderSuperior from './Components/HeaderSuperior/HeaderSuperior'
 
 function App() {
   return (
-    <div>
-      <MenuSuperior/>
+    <div className="corpo">
+      <header>
+        <MenuSuperior/>
+      </header>
       <div>
       <Switch> 
         <Route path = "/Login" exact component = {Login}/>  
         <Route path ="/Estoque" exact  component = {Estoque} />
         <Route path ="/Vendas"   component = {Vendas} />
-        <Route path ="/" exact component = {MenuPrincipal}/>
+        <Route path ="/" exact component = {Produto}/>
         <Route path ="/Funcionarios" exact component = {Funcionarios} />
         <Route path = "/Funcionarios/CadastrarFuncionario" component ={CadFunc} />
         <Route path ="/Produtos" exact component = {Produto} />
@@ -33,7 +36,6 @@ function App() {
         <div></div>
       </Switch>
       </div>
-      <Rodape/>
       
     </div>
   );

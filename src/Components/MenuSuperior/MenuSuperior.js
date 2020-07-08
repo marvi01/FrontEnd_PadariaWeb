@@ -7,43 +7,51 @@ import Carro from '../../imagens/carro.png'
 class MenuSuperior extends Component {
     render() {
         return (
-            <div className= "headerpadrao"> 
-            <nav  className="navbar navbar-expand-lg navbar-light bg-light headerpadrao ">
-          
-           <Link to="/"><h2 className="titulo">Dona Formiga</h2></Link>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div  className="collapse navbar-collapse" id="navbarSupportedContent">
- 
-    <ul  className="navbar-nav mr-auto">
-
-      <li className="nav-item active">
-      <Link className="navbar-brand" to="/Funcionarios" > Funcionarios </Link>
-      </li>
-      <li className="nav-item">
-      <Link className="navbar-brand" to="/Estoque"> Estoque </Link>
-      </li>
-      <li className="nav-item">
-      <Link  className="navbar-brand" to="/Vendas"> Vendas </Link>
-      </li>
-      <li className="nav-item">
-      <Link  className="navbar-brand" to="/Produtos"> Produtos </Link>
-      </li>
-    </ul>
-   
-    
-    
-  </div>
-  <form className="form-inline my-2 my-lg-0">
-  <Link to="/Carrinho" ><img alt='some value' className="figuras " src={Carro} /></Link>
-      <input className="form-control mr-sm-2" type="search" placeholder="Procurar" aria-label="Search"/>
-      <button className="btn btn-outline-dark" type="submit">⌕</button>
-      <Link to="/Login" ><img alt='some value' className="figuras " src={log} /></Link>
-
-    </form>
-</nav>
-</div>
+            <div className="header-middle py-4 bg-middle-brown">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-4 col-lg-2">
+                            <Link to="/">
+                                Dona Formiga
+                            </Link>
+                        </div>
+                        <div className="col">
+                            <div className="row justify-content-end">
+                                <div className="col-lg-6">
+                                    <ul class="nav">
+                                        <li className="nav-item">
+                                            <Link className="nav-link text-dark-brown" to="/Login">
+                                                <i className="fas fa-sign-in-alt mr-1"></i>
+                                                Login
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link text-dark-brown" to="/Cadastro">
+                                                <i className="fas fa-user-plus mr-1"></i>
+                                                Cadastro
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link text-dark-brown" to="/Carrinho">
+                                                <i className="fas fa-shopping-cart mr-1"></i>
+                                                Carrinho
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    <div className="input-group shadow-sm">
+                                        <input type="text" className="form-control" />
+                                        <div className="input-group-append">
+                                            <button className="btn btn-primary" type="button">
+                                                <i className="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
           /*  <header>
                 <div >
                 <img  src={logo} className=" titulo img-fluid rounded float-left " alt="Responsive image"></img>

@@ -1,12 +1,24 @@
+.geral{
+    padding:10%
+}
 
 .direita{
-    float:left;
+    float: right;
+}
+.esquerda{
+    float: left;
 }
 .formula{
     color: black;
-    width: max-content;
+
+}
+.imagem{
+    align-self: center;
+    max-width:32.4vw;
+    max-height:32.4vw;
+    width: auto;
     height: auto;
-    padding: 5%;
+    
 }
 .sub{
     text-align: left;
@@ -17,50 +29,33 @@
     float:inline-start;
 }
 .titulos{
-    margin-top: -8%;
-    height: auto;
-    width: 50%;
+    width: 22vw;
     color: black;
-    position: relative; bottom: 10%; 
-    margin-bottom:5%;
     float: left;
-    margin-left: 2%;
-    margin-top: auto;
-    margin-right: 2%;
+    
 }
 .inputss{
-    width: auto;
-    height: auto;
+    width: 10vw;
+    height: 10vw;
     padding-right:10%;
-
-
 }
 label{
     margin: 2%;
 }
-fieldset{
-  border: 2px groove (internal value);
-  border-radius: 30px;
-  background-color: whitesmoke;
-  position: absolute;
-  left: 2%;
-}
 .posicao{
-    padding-left: 3%;
-    padding-right: 2%;
+    padding: 5%;
+    background-color: whitesmoke;
+    width: 46vw;
+    height: auto;
+    border: 1.5px solid;
+    border-radius: 1.5vw;
 }
-.carro{
-    width: 10%;
-    height: min-content;
-    margin: auto;
 
-}
 .ima{
-    height: min-content;
-    margin-top: 4%;
-    float: right;
-    margin-bottom: 2%;
-    position: relative;
-    
-    
+    margin-top: 7vw; 
+    margin-bottom: 2%;    
+}
+
+.geral{
+
 }

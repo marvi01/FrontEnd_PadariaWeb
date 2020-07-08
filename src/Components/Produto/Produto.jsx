@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-import Pao from '../../imagens/Pao.jpg';
 import './Produto.css';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +17,8 @@ class Produto extends Component {
                 quantidade: 0,
                 created_at: "",
                 updated_at: "",
-                categoria_id: 0
+                categoria_id: 0,
+                valorfinal:null
         };
     };
     componentDidMount() {
@@ -38,6 +38,9 @@ class Produto extends Component {
           );
         }
       }
+      teste(){
+       console.log(sessionStorage.length); 
+      }
       exibeProduto()
       {
         const { data } = this.state;
@@ -46,10 +49,10 @@ class Produto extends Component {
             const Prod = data.map((item,indice)=>(
                 
             <div  key = {indice}  className="card tamanho group" >
-                <img className="card-img-top " src={item.imagem} />
-                <div text align= "center" className="card-body">
+                <img className="card-img-top img-fluid " src={"https://i.ibb.co/"+item.imagem} />
+                <div text align= "center" className="body card-body">
                     <h5 className="card-title">{item.nomeProd}</h5>
-            <p>{item.valor}</p>
+                    <h3 className="card-text"> R${item.valor.toFixed(2).replace(".", ",")}</h3>
             
                     <Link to ={`Produtos/${item.id}`}  className="btn btn-warning ">Comprar</Link>
                     
@@ -66,26 +69,14 @@ class Produto extends Component {
              }
 
        }
-       teste(){
-           return(
-            
-        <div  className="card tamanho group" >
-        <img className="card-img-top " src={Pao} />
-        <div text align= "center" className="card-body">
-            <h5 className="card-title">Pão de Sal</h5>    
-            <p>Kg: R$13,00</p>
-            <Link to ="Produtos/1"  href="./Produto" className="btn btn-warning ">Comprar</Link>
-        </div>
-    </div>
-    )
-       }
+       
        //
     render() {
         return (
             
-            <div>  
                  
-            <div>{this.exibeErro() || this.exibeProduto()}</div>
+            <div>{this.exibeErro() || this.exibeProduto()}
+              {this.teste()}
             </div>
         );
     };
