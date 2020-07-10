@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700;900&display=swap');
 
 :root { 
-  --dark-brown: #dd5e11;
-  --middle-brown: #ffdc78;
+  --dark-brown: #222222;
+  --middle-brown: rgb(219, 219, 219);
   --light-brown: #ffdc78;
   --dark-gray: #362d27;
   --middle-gray: #cfc7ba;

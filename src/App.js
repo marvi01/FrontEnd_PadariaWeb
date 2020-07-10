@@ -1,19 +1,13 @@
 import React from 'react';
 import './App.css';
-import MenuSuperior from './Components/MenuSuperior/MenuSuperior';
-import Rodape from './Components/Rodape/Rodape';
-import Funcionarios from './Components/Funcionarios/Funcionarios';
-import Estoque from './Components/Estoque/Estoque';
-import Vendas from './Components/Vendas/Vendas';
-import MenuPrincipal from './Components/MenuPrincipal/MenuPrincipal'
-import Login from './Components/Login/Login';
-import CadFunc from './Components/Funcionarios/CadastrarFuncionario/CadFunc';
+import MenuSuperior from './Components/User/MenuSuperior/MenuSuperior';
+import Login from './Components/User/Login/Login';
 import { Switch, Route } from 'react-router-dom';
-import Produto from './Components/Produto/Produto';
-import EspProduto from './Components/EspProduto/EspProd';
-import Carrinho from './Components/Carrinho/Carrinho';
+import Produto from './Components/User/Produto/Produto';
+import EspProduto from './Components/User/EspProduto/EspProd';
+import Carrinho from './Components/User/Carrinho/Carrinho';
 import Cadastro from './Components/Cadastro ';
-import HeaderSuperior from './Components/HeaderSuperior/HeaderSuperior'
+import HeaderSuperior from './Components/User/HeaderSuperior/HeaderSuperior'
 
 function App() {
   return (
@@ -24,11 +18,7 @@ function App() {
       <div>
       <Switch> 
         <Route path = "/Login" exact component = {Login}/>  
-        <Route path ="/Estoque" exact  component = {Estoque} />
-        <Route path ="/Vendas"   component = {Vendas} />
         <Route path ="/" exact component = {Produto}/>
-        <Route path ="/Funcionarios" exact component = {Funcionarios} />
-        <Route path = "/Funcionarios/CadastrarFuncionario" component ={CadFunc} />
         <Route path ="/Produtos" exact component = {Produto} />
         <Route path = "/Produtos/:id" exact component = {EspProduto}/>
         <Route path = "/Carrinho" exact component= {Carrinho}/>
