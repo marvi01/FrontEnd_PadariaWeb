@@ -50,11 +50,12 @@ class Produto extends Component {
                 
             <div  key = {indice}  className="card tamanho group" >
                 <img className="card-img-top img-fluid " src={"https://i.ibb.co/"+item.imagem} />
-                <div  align= "center" className="body card-body">
-                    <h4 className="card-title">{item.nomeProd}</h4>
+                <div text align= "center" className="body card-body">
+                    <h5 className="card-title">{item.nomeProd}</h5>
                     <h3 className="card-text"> R${item.valor.toFixed(2).replace(".", ",")}</h3>
             
-                    <Link to ={`Produtos/${item.id}`}  className="btn btn-warning bg-light-brown ">Comprar</Link>
+                    <Link to ={`Admin/Produtos/${item.id}`}  className="btn btn-warning ">Editar</Link>
+                    <Link to ={`Produtos/${item.id}`}  className="btn btn-danger ">Excluir</Link>
                     
                 </div>
             </div>
@@ -69,13 +70,13 @@ class Produto extends Component {
              }
 
        }
+       
        //
     render() {
         return (
             
                  
-            <div>
-              {this.exibeErro() || this.exibeProduto()}
+            <div>{this.exibeErro() || this.exibeProduto()}
               {this.teste()}
             </div>
         );
@@ -84,4 +85,3 @@ class Produto extends Component {
 
 };
 export default Produto;
-//  <img className="card-img-top img-fluid " src={"https://i.ibb.co/"+item.imagem} />

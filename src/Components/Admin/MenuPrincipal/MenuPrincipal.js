@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-class Vendas extends Component{
+class MenuPrincipal extends Component{
     render(){
         return(
             <div>
-                <p>Vendas</p>
+            <p> Menu Principal </p>
             </div>
         )
     }
 }
-export default Vendas;
+export default MenuPrincipal;

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import './EspProd.css'
-import { Link, Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
 class index extends Component {
   constructor(props) {
@@ -64,50 +64,62 @@ class index extends Component {
 
   carrinho =() => {
     let qde = this.state.data.quantidade;
-    if(qde==0){
-      alert("Digite algum valor na quantidade ");}
-    else if(qde !=0){
-        console.log(qde);
-    let prod = JSON.stringify(this.state.data);
-    sessionStorage.setItem(sessionStorage.length,prod);
-    console.log(prod);
-    this.setState({ redirect: true });
-    alert("Adicionado no Carrinho com sucesso")}
+    let verific = sessionStorage.getItem(this.state.data.id)
+    JSON.parse(verific);
+    if (qde === 0) {
+        alert("Adicione alguma quantidade de item");
+    }
+    else {
+        if ( verific===null) {
+            let prod = JSON.stringify(this.state.data);
+            sessionStorage.setItem(this.state.data.id, prod);
+            console.log(prod);
+            this.setState({ redirect: true });
+            alert("Adicionado no Carrinho com sucesso")
+        }else{
+           const permite = window.confirm('Atualizar o Produto já adicionado?');
+           if(permite){
+            let prod = JSON.stringify(this.state.data);
+            sessionStorage.setItem(this.state.data.id, prod);
+            console.log(prod);
+            this.setState({ redirect: true });
+            alert("Adicionado no Carrinho com sucesso")
+           }
+        }
+    }
     }
 
   formulario() {
     return (
+      <div className="geral ">
+      <div className="  card mb-3 ">
+  <div className="bg-card row no-gutters bg-middle-brown">
+    <div className="col-md-4">
+      <img src={"https://i.ibb.co/"+this.state.data.imagem} className="card-img" alt="..."/>
+  
 
-      <div className="geral" >
-        <div className="formula">
-          <div className="imagem esquerda">
-            <figure className="figure  ">
-              <img src={"https://i.ibb.co/"+this.state.data.imagem}  className="figure-img img-fluid rounded" alt="Responsive image" />
-              <figcaption className="figure-caption text-right"></figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <div className="titulos">
-
-            <div className="posicao">
+  </div>
+    <div className="col-md-8">
+      <div className="card-body" style={{width:540+"px"}}>
     <h1 className=" ">{this.state.data.nomeProd}</h1>
-    <h3 className="">{this.state.data.descricao}</h3>
+    <p className="h4">{this.state.data.descricao}</p>
               <div className="form-row">
-                <form action="">
-                  <label className="h4">Quantidade: </label>
-                  <input ref={this.handleInputRef} onInput={this.preco} maxLength="3" id="qde" className="form-control inputss" placeholder="Quantidade unitária" />
+                  <label className="h4">Quantidade: </label><br></br>
+                  <input ref={this.handleInputRef} onInput={this.preco} maxLength="3" id="qde" className="form-control inputss col-md-4" placeholder="Quantidade unitária" />
                   <label className="h4">Valor total:R$ {this.state.data.valorfinal.toFixed(2).replace(".", ",")}</label>
-                  <div className=" ima"><br></br>
+                  <div className="ima"><br></br>
                     <button type="submit" onClick={this.carrinho} className="btn btn-success ">
                       Adicionar no Carrinho
                     </button>
                   </div>
-                </form>
-              </div>
             </div>
-        </div>
       </div>
+    </div>
+  </div>
+</div>
+</div>
+
+      
 
     )
   }
@@ -128,3 +140,34 @@ class index extends Component {
   }
 }
 export default index;
+/**
+ * <div className="geral" >
+        <div className="formula">
+          <div className="imagem esquerda">
+            <figure className="figure  ">
+              <img src={"https://i.ibb.co/"+this.state.data.imagem}  className="figure-img img-fluid rounded" alt="Responsive image" />
+              <figcaption className="figure-caption text-right"></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div className="titulos">
+
+            <div className="posicao">
+    <h1 className=" ">{this.state.data.nomeProd}</h1>
+    <h3 className="">{this.state.data.descricao}</h3>
+              <div className="form-row">
+                  <label className="h4">Quantidade: </label>
+                  <input ref={this.handleInputRef} onInput={this.preco} maxLength="3" id="qde" className="form-control inputss" placeholder="Quantidade unitária" />
+                  <label className="h4">Valor total:R$ {this.state.data.valorfinal.toFixed(2).replace(".", ",")}</label>
+                  <div className=" ima"><br></br>
+                    <button type="submit" onClick={this.carrinho} className="btn btn-success ">
+                      Adicionar no Carrinho
+                    </button>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+ * 
+ */

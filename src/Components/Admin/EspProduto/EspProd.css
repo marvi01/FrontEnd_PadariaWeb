@@ -1,5 +1,5 @@
 .geral{
-    padding-top:10%;
+    padding:10%
 }
 
 .direita{
@@ -7,9 +7,6 @@
 }
 .esquerda{
     float: left;
-}
-.bg-card{
-    background-color: whitesmoke;
 }
 .formula{
     color: black;
@@ -38,8 +35,9 @@
     
 }
 .inputss{
-    width: 5em;
-    height: 5em;
+    width: 10vw;
+    height: 10vw;
+    padding-right:10%;
 }
 label{
     margin: 2%;

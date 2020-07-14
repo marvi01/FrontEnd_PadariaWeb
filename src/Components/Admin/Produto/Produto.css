@@ -1,0 +1,309 @@
+
+*{
+    margin: 0vw;
+    font-family:helvetica,arial,;
+}
+
+
+   
+  
+/* tela 4k */
+@media screen and (min-width: 1701px){
+    .tamanho{
+        height: 15vw;
+        width: 9vw;
+        margin-left: 0.4vw;
+        margin-top: 0.8vw;
+        float: left;
+        transition: 0.3s;
+       /* padding: 0.8% ;
+        border-color: grey;
+        border-radius: 10px;
+        border-width: 10px;
+        box-shadow: 0vw 0.5vw 1vw -0.2vw grey;
+        align-items: center;*/
+    }
+    .tamanho p{
+        font-size: 0.8vw;
+    }
+    .tamanho:hover{
+        box-shadow: 0.5vw 0.5vw 1vw grey;
+    }
+    .foto{
+        align-self: center;
+        max-width:7.5vw;
+        max-height:7.5vw;
+        width: auto;
+        height: auto;
+       
+    }
+    
+    .titulocard{
+        height: 2vw;
+        text-align: left;
+        margin-top: 0.4vw;
+        border-bottom:0.5px solid;
+        text-align: center;
+        width: auto;
+      /*  box-shadow: 0vw -1vh 1vw -0.2vw grey;*/
+    }
+    .titulocard h4{
+        font-size: 0.4vw;
+    }
+    .container {
+            width: 100%;
+    }
+    .tamanho dd{
+        margin: 0;
+        font-size: 0.5vw;
+    }
+    .tamanho h3{
+        text-align: center;
+        margin-top: 1vw;
+        font-size: 0.75vw;
+        font-weight: bolder;
+    }
+    .botao{
+        text-align: center;
+        text-decoration: none;
+        margin-top: 0.25vw;
+    }
+    .botao a p{
+        align-self: center;
+        padding-left: 3,75vw;
+        padding-right: 3,75vw;
+        font-size: 0.5;
+        border-radius: 0.25vw;
+    }
+    /* Scroller*/
+    .menu-item {
+        margin-bottom: 6vw;
+        border: none;
+        cursor: pointer;
+      }
+      .menu-item-wrapper.active {
+        border:0px steelblue solid;
+      }
+    
+      .menu-item.active {
+        border: 0px green solid;
+      }
+      .scroll-menu-arrow {
+          
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 0px;
+        
+        margin-left: 0vw;
+        padding: 0px;
+        cursor: pointer;
+        
+      }
+}
+/* tela normal */
+@media screen and (min-width: 601px) and (max-width: 1700px) {
+    .tamanho{
+        height: 30vw;
+        width: 18vw;
+        margin-left: 0.8vw;
+        margin-top: 1.6vw;
+        transition: 0.2s;
+        float: left;
+       /* padding: 0.8% ;
+        border-color: grey;
+        border-radius: 10px;
+        border-width: 10px;
+        box-shadow: 0vw 0.5vw 1vw -0.2vw grey;
+        align-items: center;*/
+    }
+    .tamanho p{
+        font-size: 1.6vw;
+    }
+    .tamanho:hover{
+        box-shadow: 0.5vw 0.5vw 1vw grey;
+    }
+    .foto{
+        align-self: center;
+        max-width:15vw;
+        max-height:15vw;
+        width: auto;
+        height: auto;
+       
+    }
+    .sobrefoto{
+        position: absolute;
+        width: 100%;
+        height: 15vw;
+    }
+    .titulocard{
+        height: 4vw;
+        text-align: left;
+        margin-top: 0.8vw;
+        border-bottom:1px solid;
+        text-align: center;
+        width: auto;
+      /*  box-shadow: 0vw -1vh 1vw -0.2vw grey;*/
+    }
+    .titulocard h4{
+        font-size: 0.8vw;
+    }
+    .container {
+            width: 100%;
+    }
+    .tamanho dd{
+        margin: 0;
+        font-size: 1vw;
+    }
+    .tamanho h3{
+        text-align: center;
+        margin-top: 2vw;
+        font-size: 1.5vw;
+        font-weight: bolder;
+    }
+    .botao{
+        text-align: center;
+        text-decoration: none;
+        margin-top: 0.5vw;
+    }
+    .botao a p{
+        align-self: center;
+        padding-left: 7,5vw;
+        padding-right: 7,5vw;
+        font-size: 1;
+        border-radius: 0.5vw;
+    }
+    /*Scroller*/
+    .menu-item {
+        margin-bottom: 2vw;
+        border: none;
+        cursor: pointer;
+      }
+    
+    .menu-item-wrapper.active {
+        border:0px steelblue solid;
+      }
+    
+      .menu-item.active {
+        border: 0px green solid;
+      }
+      .scroll-menu-arrow {
+          
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: 0px;
+        
+        margin-left: 0vw;
+        padding: 0px;
+        cursor: pointer;
+        
+      }
+}
+
+
+/*    CELULAR     */
+
+
+/* If the screen size is 600px wide or less. set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    
+    .tamanho{
+        height: 86.75vw;
+        width: 44vw;
+        margin-left: 1.9vw;
+        margin-top: 3.8vw;
+        float: left;
+       transition: 0.3s;
+       /* padding: 0.8% ;
+        border-color: grey;
+        border-radius: 10px;
+        border-width: 10px;
+        box-shadow: 0vw 0.5vw 1vw -0.2vw grey;
+        align-items: center;*/
+    }
+
+    .tamanho p{
+        font-size: 3.8vw;
+    }
+    .tamanho:hover{
+        box-shadow: 0.5vw 0.5vw 1vw grey;
+    }
+    .foto{
+        align-self: center;
+        max-width:42.4vw;
+        max-height:42.4vw;
+        width: auto;
+        height: auto;
+        
+    }
+    
+    .titulocard{
+        height: 10vw;
+        text-align: left;
+        margin-top: 1.8vw;
+        border-bottom:1px solid;
+        text-align: center;
+        width: auto;
+      /*  box-shadow: 0vw -1vh 1vw -0.2vw grey;*/
+    }
+    .titulocard h4{
+        font-size: 2vw;
+    }
+    .container {
+            width: 100%;
+    }
+    
+    .tamanho h3{
+        text-align: center;
+        margin-top: 5vw;
+        font-size: 3.7vw;
+    }
+    .botao{
+        text-align: center;
+        margin-top: 5vw;
+        
+    }
+    .botao a p{
+        margin-top: 4vw;
+        align-self: center;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        padding-left: 7,5vw;
+        padding-right: 7,5vw;
+        border-radius: 1.5vw;
+    }
+
+    /*Scroller*/
+    .menu-item {
+        
+        margin-bottom: 1vw;  
+        cursor: pointer;
+      }
+      .menu-item-wrapper.active {
+        border: 0px blue solid;
+      }
+      .menu-item.active {
+        border: 0px;
+      }
+       
+      .scroll-menu-arrow {
+        font-size: 0px;
+        margin-left: 0vw;
+        padding: 0px;
+        cursor: pointer;
+        
+      }
+}
+.botao a p{
+    background-color: lightseagreen;
+    color: black;
+    text-decoration: none;
+    
+    transition: 0.5s;
+    opacity: 1;
+}
+.botao a:hover{
+    text-decoration: none;
+}
+.botao a p:hover{
+    background-color: #ff6666;
+}
