@@ -77,7 +77,7 @@ class index extends Component {
             this.setState({ redirect: true });
             alert("Adicionado no Carrinho com sucesso")
         }else{
-           const permite = window.confirm('Atualizar o Produto já adicionado?');
+           const permite = window.confirm('Atualizar o Produto: '+this.state.data.nomeProd);
            if(permite){
             let prod = JSON.stringify(this.state.data);
             sessionStorage.setItem(this.state.data.id, prod);
@@ -88,15 +88,17 @@ class index extends Component {
         }
     }
     }
-
+//
   formulario() {
     return (
       <div className="geral ">
       <div className="  card mb-3 ">
   <div className="bg-card row no-gutters bg-middle-brown">
     <div className="col-md-4">
+      {//IMAGENS DE TAMANHO MAIORES OU PROPORCIONAIS A 350x350px
+  }
       <img src={"https://i.ibb.co/"+this.state.data.imagem} className="card-img" alt="..."/>
-  
+      
 
   </div>
     <div className="col-md-8">

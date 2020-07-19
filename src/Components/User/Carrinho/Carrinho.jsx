@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Carrinho.css';
-import { Link,Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
 
 
@@ -10,7 +10,8 @@ export default function Carrinho(props) {
     const [Prod, setProd] = useState(true);
     const [count, setcount] = useState(true);
     const [Valor, setValor] = useState(true);
-    const [Rota, setRota] = useState('/Carrinho');
+    const [redirect, setredirect] = useState(false);
+    
     
 
     const prencherArray = () => {
@@ -49,7 +50,7 @@ export default function Carrinho(props) {
                 <td></td>
                 <td></td>
                 <td>R$ {recebe.toFixed(2).replace(".", ",")}</td>
-                <td><Link onClick={carrinho} to={Rota}  className="btn btn-success">Confirmar</Link></td>
+                <td><button onClick={carrinho}   className="btn btn-success">Confirmar</button></td>
 
             </tr>
         )
@@ -58,16 +59,29 @@ export default function Carrinho(props) {
 
     }
     const carrinho = () => {
-        let qde = Prod;
-        let caminho;
-        console.log(qde);
         if (Prod && Prod.length) {
-           setRota('/ConfirmaCompra')
-           console.log('Tem Cadastro');
+           let verifica = window.confirm('Deseja finalizar a compra?');
+           setredirect(verifica);
+           if(verifica){
+               console.log(verifica);
+            return(
+            <div> 
+            <Redirect to="/ConfirmaCompra" />
+            </div>)
+           }
         }
         else {
             alert( 'Nenhum Produto Cadastrado')
         }
+    }
+    const redireciona =()=>{
+        if(redirect){
+         return(
+         <div> 
+         <Redirect to="/ConfirmaCompra" />
+         </div>)
+        }
+
     }
     const a = () => {
         setcount(1)
@@ -127,6 +141,7 @@ export default function Carrinho(props) {
 
     return (
         <div>
+            {redireciona()}
             <table className="table">
                 {headTabela()}
                 <tbody>

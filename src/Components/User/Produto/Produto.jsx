@@ -21,6 +21,7 @@ class Produto extends Component {
                 valorfinal:null
         };
     };
+
     componentDidMount() {
         fetch("http://localhost:8000/api/Produtos")
         .then(data => data.json().then(data => this.setState({ data })))
@@ -63,9 +64,9 @@ class Produto extends Component {
              return Prod;
               } else{
                 return(
-                <div className="alert alert-light">
-               <p>Nenhum produto encontrado :(</p>
-              </div>)
+                  <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>)
              }
 
        }
