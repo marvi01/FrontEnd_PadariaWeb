@@ -7,12 +7,9 @@ class Login extends Component {
     super(props);
     this.state = {
       data: {
-          "grant_type":"password",
-          "client_id":"3",
-          "client_secret":"bsCVjzZCefKl2T6NNw3whNCCWRePKchYwQVE4hfm",
-          "username":"",  
+          
+          "email":"",  
           "password":"",
-          "scope":"usuario"
       },
       redirect: false,
       lembrar: "off",
@@ -41,7 +38,7 @@ class Login extends Component {
             <div className="form-group">
               <h3 align="center">Logar</h3>
               <label for="exampleInputEmail1">Email </label>
-              <input onChange={this.handleInputChange} name="username" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+              <input onChange={this.handleInputChange} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
 
             </div>
             <div className="form-group">
@@ -65,7 +62,7 @@ class Login extends Component {
     );
   }
   handleSubmit = event => {
-    fetch("http://localhost:8000/oauth/token", {
+    fetch("http://localhost:8000/api/auth/login", {
       method: "post",
       body: JSON.stringify(this.state.data),
       headers: {
@@ -85,9 +82,12 @@ class Login extends Component {
           });
         }
       }).then(token =>{ 
-        console.log(token.access_token)
-        console.log(token)
-        sessionStorage.setItem("oAuth",token);
+        console.log(token.data.user.admin);
+        sessionStorage.setItem("JWT_token",JSON.stringify(token) );
+        sessionStorage.setItem("idSession",token.data.user.id);
+        sessionStorage.setItem("admin",parseInt(token.data.user.admin));
+        //token.data.user.admin
+        window.location.reload();
       })
       .catch(erro => this.setState({ erro: erro }));
     event.preventDefault();
@@ -105,9 +105,8 @@ class Login extends Component {
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/"/>;
     } else {
-      console.log(this.state.erro)
       return (
         <div>
           {  this.htmlLogin()}

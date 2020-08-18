@@ -88,7 +88,7 @@ export default function Carrinho(props) {
     }
 
     const exibiCarrinho = () => {
-
+        console.log(JSON.stringify(Prod));
         if (Prod && Prod.length) {
             const ProdutoCarrinho = Prod.map((item, indice) =>
                 (

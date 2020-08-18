@@ -4,19 +4,19 @@ import MenuSuperior from './Components/User/MenuSuperior/MenuSuperior';
 import Login from './Components/User/Login/Login';
 import { Switch, Route } from 'react-router-dom';
 import Produto from './Components/User/Produto/Produto';
-import EspProduto from './Components/User/EspProduto/EspProd';
+import EspProduto from './Components/User/Produto/EspProduto/EspProd';
 import Carrinho from './Components/User/Carrinho/Carrinho';
 import Cadastro from './Components/User/Cadastro/Cadastro';
-import ProdutoAdmin from './Components/Admin/Produto/Produto';
-import EspProdutoAdmin from './Components/Admin/EspProduto/EspProd';
-import CarrinhoAdmin from './Components/Admin/Carrinho/Carrinho';
-import CadastroAdmin from './Components/Admin/Cadastro/Cadastro';
 import ConfirmCompra from './Components/User/ConCompra/ConfirmCompra';
 import Perfil from './Components/User/Perfil/Perfil'
 import SeusDados from './Components/User/Perfil/SeusDados/SeusDados'
 import Endereco from './Components/User/Perfil/Endereco/Endereco';
+import AltEndereco from './Components/User/Perfil/Endereco/AlterarEndereco/AlterarEndereco'
 import MeusPedidos from './Components/User/Perfil/MeusPedidos/MeusPedidos';
 import Config from './Components/User/Perfil/Config/Config';
+import AddProd from './Components/User/Produto/AddProd/AddProd';
+import UpdateProd from './Components/User/Produto/UpdateProd/UpdateProd';
+import teste from './Components/User/teste';
 function App() {
   return (
     <div className="corpo">
@@ -29,6 +29,8 @@ function App() {
         <Route path ="/" exact component = {Produto}/>
         <Route path ="/Produtos" exact component = {Produto} />
         <Route path = "/Produtos/:id" exact component = {EspProduto}/>
+        <Route path="/AdicionarProduto" exact component={AddProd} />
+        <Route path="/AtualizarProduto/:id" exact component={UpdateProd}/>
         <Route path = "/Carrinho" exact component= {Carrinho}/>
         <Route path = "/Cadastro" exact component= {Cadastro}/>
         <Route path = "/Login" exact component = {Login}/>  
@@ -37,13 +39,9 @@ function App() {
         <Route path = "/Perfil/Endereco" exact component = {Endereco}/>
         <Route path = "/Perfil/MeusPedidos" exact component = {MeusPedidos}/>
         <Route path = "/Perfil/Configuracoes" exact component = {Config}/>  
-        <Route path ="/Admin" exact component = {ProdutoAdmin}/>
-        <Route path ="/Admin/Produtos" exact component = {ProdutoAdmin} />
-        <Route path = "/Admin/Produtos/:id" exact component = {EspProdutoAdmin}/>
-        <Route path = "/Admin/Carrinho" exact component = {CarrinhoAdmin}/>
-        <Route path = "/Admin/Cadastro" exact component = {CadastroAdmin}/>
         <Route path = "/ConfirmaCompra" exact component = {ConfirmCompra}/>
-        <div></div>
+        <Route path = "/Perfil/Endereço/AlterarEnderco/:id" exact component = {AltEndereco}/>
+        <Route path = "/teste" exact component = {teste}/>
       </Switch>
       </div>
       

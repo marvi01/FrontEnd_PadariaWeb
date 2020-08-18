@@ -72,3 +72,6 @@ li{
 .direita{
     float: right;
 }
+.border-none{
+    border-width: 0px !important;
+}

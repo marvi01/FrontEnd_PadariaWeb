@@ -7,9 +7,11 @@ class Cadastro extends Component {
     super(props);
     this.state = {
       data: {
-        "name": " ",
+        "name": "",
         "email": "",
-        "password": ""
+        "password": "",
+        "password_confirmation": "",
+        "admin": "0"
       },
       redirect: false
     }
@@ -30,7 +32,7 @@ class Cadastro extends Component {
         <div className="form-row">
           <div className="form-group col-md-3">
             <label >Email</label>
-            <input onChange={this.handleInputChange}  name="email" type="email" className="form-control" id="inputEmail4" />
+            <input onChange={this.handleInputChange} name="email" type="email" className="form-control" id="inputEmail4" />
           </div>
 
         </div>
@@ -43,7 +45,7 @@ class Cadastro extends Component {
         <div className="form-row">
           <div className="form-group col-md-2">
             <label>Confirme sua senha</label>
-            <input type="passwordConfirm" className="form-control" id="inputConfirmPassword4" />
+            <input onChange={this.handleInputChange} name="password_confirmation" type="passwordConfirm" className="form-control" id="inputConfirmPassword4" />
           </div>
         </div>
         <div className="form-group">
@@ -72,17 +74,17 @@ class Cadastro extends Component {
   };
   handleSubmit = event => {
     console.log(this.state.data);
-    fetch("http://localhost:8000/api/cadastro", {
+    fetch("http://localhost:8000/api/auth/register", {
       method: "post",
       body: JSON.stringify(this.state.data),
       headers: {
-        'Accept': 'application/json, text/plain, */*',
         "Content-Type": "application/json"
       }
     })
       .then(data => {
         if (data.ok) {
           this.setState({ redirect: true });
+          console.log(data);
           alert('Cadastrado com sucesso')
           return data.json();
 
