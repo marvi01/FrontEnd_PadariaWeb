@@ -1,8 +1,8 @@
-
 .meio{
-    position: absolute;
-    top: 5em;
-    width: 85em;
+position: relative;
+top:-120px;
+right: 200px;
+
 
 }
 @media only screen and (max-width: 800px) {

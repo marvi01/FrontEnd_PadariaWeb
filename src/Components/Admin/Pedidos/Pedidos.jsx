@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import Perfil from '../Perfil'
 import { Link } from 'react-router-dom';
+import RowPedido from './RowPedido';
+import RowEnd from './RowEnd';
 
-class MeusPedidos extends Component {
+class Pedidos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-             venda:{
-                "venda_id": 0,
-                "produto_id": 0,
-                "users_id":0
-                },
-            redirect: false,
-            lembrar: "off",
-            erro: null,
-            status: false
-        }
+            venda:{
+               "venda_id": 0,
+               "produto_id": 0,
+               "users_id":0
+               },
+           redirect: false,
+           lembrar: "off",
+           erro: null,
+           status: false
+       }
+        
     }
     componentDidMount() {
-        let id = sessionStorage.getItem('idSession');
         let token = JSON.parse(sessionStorage.getItem('JWT_token'));
-        fetch("http://localhost:8000/api/VendaUser/" + id, {
+        fetch("http://localhost:8000/api/Pedidos" , {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + token.data.access_token
             }
         }).then(data => data.json().then(data => {
-            console.log(data);
+    
             this.setState({ venda: data.data })
             this.setState({ status: data.status });
-            console.log(this.state.data);
         }));
 
     }
@@ -37,11 +37,12 @@ class MeusPedidos extends Component {
         const head = (
             <thead className="thead-dark ">
                 <tr>
-                    <th scope="col">Numero da venda</th>
+                    <th scope="col">Produtos</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Pagamento</th>
                     <th scope="col">Observacoes</th>
-                    <th scope="col"></th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Compra Realizada</th>
                 </tr>
             </thead>
         )
@@ -50,7 +51,6 @@ class MeusPedidos extends Component {
     tableVenda = () => {
         const Prod = this.state;
         const End = this.state.venda;
-        console.log(this.state);
         if (End && Prod.status === 200) {
             const ProdutoCarrinho = End.map((item, indice) => {
             let pag;
@@ -61,13 +61,19 @@ class MeusPedidos extends Component {
             }
               return  (
                 <tr key={indice}>
-                <td >{item.id}</td>
+                <td ><RowPedido id ={item.id}/></td>
                 <td >R$ {item.valor.toFixed(2).replace(".", ",")}</td>
                 {pag}
                 <td >{item.observacoes}</td>
+                <td> <RowEnd id={item.Endereco_id}/></td>
                 <td >
-                    <Link to={"/Perfil/MeusPedidos/Pedido/"+ item.id} className="btn btn-primary">Saber Mais</Link>
+                    <Link onClick={()=>{
+                        fetch("http://localhost:8000/api/ConfirmPedido/"+item.id,{method:"PUT"})
+                        alert('Pedido realizado com sucesso')
+                        window.location.reload()
+                    }} className="btn btn-success">Compra Realizada</Link>
                 </td>
+                
             </tr>
                 )
             })
@@ -87,16 +93,16 @@ class MeusPedidos extends Component {
     render() {
         return (
             <div>
-                <Perfil></Perfil>
                 <table className="table">
                     {this.headTabela()}
                     <tbody>
                         {this.tableVenda()}
                     </tbody>
                 </table>
+                
             </div>
         );
     }
 }
 
-export default MeusPedidos;
+export default Pedidos;

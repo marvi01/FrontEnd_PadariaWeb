@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-
-
+import "./Cadastro.css";
 class Cadastro extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,7 @@ class Cadastro extends Component {
         "email": "",
         "password": "",
         "password_confirmation": "",
-        "admin": "0"
+        "admin": "1"
       },
       redirect: false
     }
@@ -20,44 +19,38 @@ class Cadastro extends Component {
 
   htmlCadastro = () => {
 
-    const html = (<div >
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-row">
-          <div className="form-group col-md-3">
-            <label >Nome </label>
-            <input onChange={this.handleInputChange} name="name" type="text" className="form-control" id="name" />
+    const html = (
+      <div className="meio" >
+        <form className="layout"  onSubmit={this.handleSubmit}>
+        <h3 align="center">Cadastrar</h3>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label >Nome </label>
+              <input onChange={this.handleInputChange} name="name" type="text" className="form-control" id="name" />
+            </div>
           </div>
+          <div className="form-row">
+            <div className="form-group col-md-6">
+              <label >Email</label>
+              <input onChange={this.handleInputChange} name="email" type="email" className="form-control" id="inputEmail4" />
+            </div>
 
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-3">
-            <label >Email</label>
-            <input onChange={this.handleInputChange} name="email" type="email" className="form-control" id="inputEmail4" />
           </div>
-
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-2">
-            <label >Confirme sua senha</label>
-            <input onChange={this.handleInputChange} name="password" type="password" className="form-control" id="inputPassword4" />
+      
+          <div className="form-row">
+            <div className="col col-md-4">
+              <label >Senha</label>
+              <input onChange={this.handleInputChange} name="password" type="password" className="form-control" id="inputPassword4" />
+            </div>
+            <div className="col col-md-4">
+              <label>Confirme sua senha</label>
+              <input onChange={this.handleInputChange} name="password_confirmation" type="passwordConfirm" className="form-control" id="inputConfirmPassword4" />
+            </div>
           </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-2">
-            <label>Confirme sua senha</label>
-            <input onChange={this.handleInputChange} name="password_confirmation" type="passwordConfirm" className="form-control" id="inputConfirmPassword4" />
-          </div>
-        </div>
-        <div className="form-group">
-        </div>
-        <button type="submit" className="btn btn-primary">Sign in</button>
-      </form>
-
-      <a onClick={() => {
-        sessionStorage.setItem("authTeste", 'logado')
-        console.log(sessionStorage.getItem("authTeste"));
-      }} href="/">Teste</a>
-    </div>
+          <br/>
+          <button type="submit" className="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
 
     )
     return html;

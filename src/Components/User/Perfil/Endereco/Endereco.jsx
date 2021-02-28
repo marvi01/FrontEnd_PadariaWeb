@@ -97,7 +97,7 @@ class Endereco extends Component {
                                     <span><a href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCep.cfm" className="badge badge-light float-right">Não sabe seu CEP?</a></span>
                                 </div>
                             </div>
-                            <button className="btn btn-primary" type="submit" href="/Perfil/Endereco">Submit form</button>
+                            <button className="btn btn-primary" type="submit" href="/Perfil/Endereco">Cadastrar novo Endereço</button>
                         </div>
                     </div>
 

@@ -4,6 +4,9 @@
 }
 .card-prod{
     width:18rem;
-    margin-left: 2rem;
-    margin-top: 1rem;
+}
+.class-field{
+    border: 2px solid;
+    margin: 2rem;
+    padding: 1rem;
 }

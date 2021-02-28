@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Perfil from '../Perfil'
 import { Redirect } from 'react-router-dom';
+import './SeusDados.css';
 
 class SeusDados extends Component {
   constructor(props) {
@@ -34,34 +35,31 @@ class SeusDados extends Component {
   }
   htmlCadastro = () => {
     if (this.state.data && this.state.status===200) {
-      const html = (<div >
-        <form onSubmit={this.handleSubmit}>
+      const html = (<div className="meio" >
+        <form className="layout" onSubmit={this.handleSubmit}>
           <div className="form-row">
-            <div className="form-group col-md-3">
+            <div className="form-group col-md-6">
               <label >Nome </label>
               <input value={this.state.data.name} onChange={this.handleInputChange} name="name" type="text" className="form-control" id="name" />
             </div>
           </div>
           <div className="form-row">
-            <div className="form-group col-md-3">
+            <div className="form-group col-md-6">
               <label >Email</label>
               <input value={this.state.data.email} onChange={this.handleInputChange} name="email" type="email" className="form-control" id="inputEmail4" />
             </div>
           </div>
           <div className="form-row">
-            <div className="form-group col-md-2">
+            <div className="form-group col-md-4">
               <label >Senha</label>
               <input value={this.state.data.password} onChange={this.handleInputChange} name="password" type="password" className="form-control" id="inputPassword4" />
             </div>
           </div>
           <div className="form-group">
           </div>
-          <button type="submit" className="btn btn-primary">Sign in</button>
+          <button type="submit" className="btn btn-primary">Atualizar dados</button>
         </form>
-        <a onClick={() => {
-          sessionStorage.setItem("authTeste", 'logado')
-          console.log(sessionStorage.getItem("authTeste"));
-        }} href="/">Teste</a>
+        
       </div>
       )
       return html;
@@ -88,7 +86,7 @@ class SeusDados extends Component {
   handleSubmit = event => {
     console.log(this.state.data);
     fetch("http://localhost:8000/api/cadastro", {
-      method: "post",
+      method: "put",
       body: JSON.stringify(this.state.data),
       headers: {
         'Accept': 'application/json, text/plain, */*',

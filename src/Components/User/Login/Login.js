@@ -31,9 +31,9 @@ class Login extends Component {
   htmlLogin() {
 
     return (
-      <div>
+      <div className="layout">
         <form onSubmit={this.handleSubmit}>
-          <fieldset className="layout">
+          <fieldset >
 
             <div className="form-group">
               <h3 align="center">Logar</h3>
@@ -44,15 +44,12 @@ class Login extends Component {
             <div className="form-group">
               <label for="exampleInputPassword1">Senha</label>
               <input onChange={this.handleInputChange} name="password" type="password" className="form-control" id="exampleInputPassword1"></input>
-            </div>
-            <div className="form-group form-check ">
-              <input onChange={this.handleInputCheck} type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-              <div className="">
-                <label className="form-check-label" for="exampleCheck1">Lembre-se de mim</label>
+            </div>          
+              <div className="">     
                 <p><Link to="/Cadastro" className="form-check-label texto">Cadastre-se </Link></p>
               </div>
-            </div>
-            <button type="submit" className="btn btn-outline-success">Submit</button>
+
+            <button type="submit" className="btn btn-outline-success">Logar</button>
 
           </fieldset>
         </form>

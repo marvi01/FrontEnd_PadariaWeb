@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
-import Perfil from '../Perfil'
 import { Link } from 'react-router-dom';
 
-class MeusPedidos extends Component {
+class Vendas extends Component {
     constructor(props) {
         super(props);
         this.state = {
-             venda:{
-                "venda_id": 0,
-                "produto_id": 0,
-                "users_id":0
-                },
-            redirect: false,
-            lembrar: "off",
-            erro: null,
-            status: false
-        }
+            venda:{
+               "venda_id": 0,
+               "produto_id": 0,
+               "users_id":0
+               },
+           redirect: false,
+           lembrar: "off",
+           erro: null,
+           status: false
+       }
+        
     }
     componentDidMount() {
-        let id = sessionStorage.getItem('idSession');
         let token = JSON.parse(sessionStorage.getItem('JWT_token'));
-        fetch("http://localhost:8000/api/VendaUser/" + id, {
+        fetch("http://localhost:8000/api/Vendas" , {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + token.data.access_token
@@ -66,7 +65,7 @@ class MeusPedidos extends Component {
                 {pag}
                 <td >{item.observacoes}</td>
                 <td >
-                    <Link to={"/Perfil/MeusPedidos/Pedido/"+ item.id} className="btn btn-primary">Saber Mais</Link>
+                    <Link to={"/Admin/Venda/"+ item.id} className="btn btn-primary">Saber Mais</Link>
                 </td>
             </tr>
                 )
@@ -87,7 +86,6 @@ class MeusPedidos extends Component {
     render() {
         return (
             <div>
-                <Perfil></Perfil>
                 <table className="table">
                     {this.headTabela()}
                     <tbody>
@@ -99,4 +97,4 @@ class MeusPedidos extends Component {
     }
 }
 
-export default MeusPedidos;
+export default Vendas;

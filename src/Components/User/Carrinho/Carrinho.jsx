@@ -42,6 +42,8 @@ export default function Carrinho(props) {
                 return valor;
             }, 0);
             recebe = colunaFinal + 0;
+            console.log(colunaFinal);
+            sessionStorage.setItem("valcarrinho",colunaFinal);
         }
         const HtmlTotal = (
             <tr >
@@ -127,7 +129,7 @@ export default function Carrinho(props) {
         const head = (
             <thead className="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col"></th>
                     <th scope="col">Imagem</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Quantidade</th>

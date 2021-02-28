@@ -44,7 +44,7 @@ class MenuSuperior extends Component {
                                                             sessionStorage.removeItem('JWT_token');
                                                             sessionStorage.removeItem('admin');
                                                             sessionStorage.removeItem('idSession');
-                                                            window.location.reload();
+                                                            window.location.replace("http://localhost:3000/");
                                                         }
                                                     }}
                                                         className="nav-link text-dark-brown" href="/">
@@ -59,15 +59,7 @@ class MenuSuperior extends Component {
                                                 </Link>
                                                 </li>
                                             </ul>
-                                            <div className="input-group shadow-sm">
-                                                <input type="text" className="form-control" />
-                                                <div className="input-group-append">
-                                                    <button className="btn btn-dark" type="button">
-                                                        <i className="fas fa-search"></i>
-                                                    </button>
 
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -102,21 +94,8 @@ class MenuSuperior extends Component {
                                                 Cadastro
                                             </Link>
                                             </li>
-                                            <li className="nav-item">
-                                                <Link className="nav-link text-dark-brown" to="/Carrinho">
-                                                    <i className="fas fa-shopping-cart mr-1"></i>
-                                                Carrinho
-                                            </Link>
-                                            </li>
+
                                         </ul>
-                                        <div className="input-group shadow-sm">
-                                            <input type="text" className="form-control" />
-                                            <div className="input-group-append">
-                                                <button className="btn btn-dark" type="button">
-                                                    <i className="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

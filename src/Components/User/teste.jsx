@@ -34,6 +34,11 @@ class teste extends Component {
         };
     };
     async componentDidMount() {
+        await fetch('http://localhost:8000/api/VendaUser/17')
+            .then(data => data.json().then(data => {
+                this.setState({ venda: data.data });
+            }))
+            .catch(erro => this.setState(erro));
         await fetch('http://localhost:8000/api/CompraUser/17')
             .then(data => data.json().then(data => {
                 this.setState({ compra: data.data });
@@ -57,6 +62,10 @@ class teste extends Component {
     htmlteste = () => {
         const data = this.state.produtos;
         const obj = this.state.status;
+        const compra = this.state.compra;
+        const venda = this.state.venda;
+        console.log(venda);
+        console.log(compra);
         if (obj === 200) {
             const Prod = data.map((item, indice) => (
                

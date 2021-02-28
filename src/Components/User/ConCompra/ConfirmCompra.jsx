@@ -19,20 +19,17 @@ class Confirmvenda extends Component {
         "gia": null,
         "users_id": 0,
       },
-      "venda": {
+      venda: {
         "valor": 0,
-        "cartao": 0,
-        "observacoes": null,
         "Endereco_id": 0,
         "users_id": 0,
-
+        "observacoes": "",
+        "confirm": 0
       },
       compra: {
         "venda_id": 0,
         "produto_id": 0,
-        "users_id": 0,
-        "updated_at": null,
-        "created_at": null
+        "users_id": 0
       },
       produtos: [],
       valorfinal: [],
@@ -71,6 +68,12 @@ class Confirmvenda extends Component {
     this.setState(prevState => ({
       venda: { ...prevState.venda, users_id: parseInt(id) }
     }));
+    const objeto = parseFloat(sessionStorage.getItem("valcarrinho"));
+    console.log(objeto);
+    this.setState(prevState => ({
+      venda: { ...prevState.venda, valor: parseFloat(sessionStorage.getItem("valcarrinho")) }
+    }));
+
   }
   exibeErro() {
     const { erro } = this.state;
@@ -117,25 +120,28 @@ class Confirmvenda extends Component {
       </div>)
     }
   }
+  setarValor = () => {
+    const data = this.variavel;
+    console.log(data);
+
+  }
   produtos = () => {
     const Prod = this.state.produtos;
     const Valor = this.state.valorfinal;
     var ProdutoCarrinho;
     var recebe = 0;
     if (Valor && Valor.length) {
-      var valor
-      const colunaFinal = Valor.reduce(function (total, numero) {
-        valor = total + numero;
-        return valor;
-      }, 0);
+
+      const colunaFinal = this.state.venda.valor;
       recebe = colunaFinal + 0;
     };
-    
+
+
     const HtmlTotal = (
       <tr>
-        
+
         <th scope="row">Total</th>
-        <td ref={this.handleInputRef} >R${recebe.toFixed(2).replace(".", ",")}</td>
+        <td ref={this.handleInputRef} value={recebe} >R${recebe.toFixed(2).replace(".", ",")}</td>
       </tr>
     )
     if (true) {
@@ -194,7 +200,7 @@ class Confirmvenda extends Component {
   }
   obs = () => {
     return (
-      <div className="input-group" style={{ width: 25 + "em" }}>
+      <div className="input-group" style={{ width: 20 + "rem" }}>
         <textarea ref={this.handleInputRef} onInput={this.handleInputChange} value={this.state.venda.observacoes} name="observacoes" className="form-control" aria-label="With textarea" placeholder="Adicione aqui qualquer observação"></textarea>
       </div>
     )
@@ -211,6 +217,7 @@ class Confirmvenda extends Component {
   handleSubmit = event => {
 
     let token = JSON.parse(sessionStorage.getItem('JWT_token'));
+    let id = sessionStorage.getItem('idSession');
     const confirm = window.confirm("Deseja Finalizar a venda?");
     if (confirm) {
       fetch("http://localhost:8000/api/Venda", {
@@ -218,44 +225,85 @@ class Confirmvenda extends Component {
         body: JSON.stringify(this.state.venda),
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer " + token.venda.access_token
+          "Authorization": "Bearer " + token.data.access_token
         }
-      })
-        .then(venda => {
-          if (venda.ok) {
-            alert('venda finalizada com sucesso');
-            this.setState({ redirect: true });
-            for (let i = 0; i < 99; i++) {
-              sessionStorage.removeItem(i);
-            }
-            return venda.json();
-          } else {
-            venda.json().then(venda => {
-              if (venda.error) {
-                this.setState({ erro: venda.error });
-              }
-            });
+      }).then(data => data.json().then(venda => {
+        this.state.produtos.map((item) => {
+          let json = {
+            "nomeProd": item.nomeProd,
+            "descricao": item.descricao,
+            "valor": item.valor,
+            "imagem": item.imagem,
+            "quantidade": item.quantidade,
+            "categoria_id": item.categoria_id,
+            "valorfinal": item.valorfinal
           }
-        }).catch(erro => { this.setState({ erro: erro }); console.log(erro); });
+          console.log(item);
+          fetch("http://localhost:8000/api/ProdutoCopy", {
+            method: "post",
+            body: JSON.stringify(json),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then(data => data.json().then(prodCopy => {
+
+            console.log(venda);
+            const vendaId = venda.data.id;
+            console.log(vendaId);
+            const prod = this.state.produtos;
+            console.log(vendaId);
+            console.log(prod);
+            let json = {
+              "venda_id": vendaId,
+              "produto_id": prodCopy.data.id,
+              "users_id": parseInt(id)
+            }
+            console.log(json);
+            fetch("http://localhost:8000/api/Compra", {
+              method: "post",
+              body: JSON.stringify(json),
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token.data.access_token
+              }
+            }).then(data => data.json().then(compra => {
+              console.log(compra);
+            }))
+          }))
+        })
+        alert('venda finalizada com sucesso');
+        this.setState({ redirect: true });
+
+        for (let i = 0; i < 99; i++) {
+          sessionStorage.removeItem(i);
+        }
+        if (venda.error) {
+          this.setState({ erro: venda.error });
+        }
+      })).catch(erro => { this.setState({ erro: erro }); console.log(erro); });
       event.preventDefault()
     }
   };
   htmlConfirmavenda = () => {
     return (
       <form onSubmit={this.handleSubmit} >
-        <div>
-          {this.Endereco()}
-          <Link to="/Perfil/Endereco"><i className="fas fa-plus-circle"></i>Criar novo Endereço</Link>
-        </div>
-        {this.produtos()}
-        {this.formPagamento()}
-        {this.obs()}
-        <button type="submit" className="btn btn-success mb-6" >Success</button>
+        <fieldset className="class-field">
+          <legend>Finalizar Compra</legend>
+          <div>
+            {this.Endereco()}
+            <Link to="/Perfil/Endereco"><i className="fas fa-plus-circle"></i>Criar novo Endereço</Link>
+          </div>
+          {this.produtos()}
+          {this.formPagamento()}
+          {this.obs()}
+          <button type="submit" className="btn btn-success mb-6" >Confirmar compra</button>
+        </fieldset>
       </form>
     )
   }
   render() {
     const redirect = this.state.redirect;
+    console.log(this.state);
     if (redirect) {
       return (
         <Redirect to="/"></Redirect>

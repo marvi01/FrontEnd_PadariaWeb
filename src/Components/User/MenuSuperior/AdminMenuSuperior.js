@@ -30,7 +30,7 @@ class AdminMenuSuperior extends Component {
                                                             sessionStorage.removeItem('JWT_token');
                                                             sessionStorage.removeItem('admin');
                                                             sessionStorage.removeItem('idSession');
-                                                            window.location.reload();
+                                                            window.location.replace("http://localhost:3000/");
                                                         }
                                                     }} className="dropdown-item text-light pl-4 py-2" >
                                                         <i className="fas fa-user-circle mr-2"></i>Sair</a>
@@ -38,26 +38,18 @@ class AdminMenuSuperior extends Component {
                                             </div>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link text-dark-brown" to="/Pedido">
+                                            <Link className="nav-link text-dark-brown" to="/Pedidos">
                                                 <i className="fas fa-list-alt mr-1"></i>
-                                                Pedido
+                                                Pedidos
                                             </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link text-dark-brown" to="/vendas">
+                                            <Link className="nav-link text-dark-brown" to="/Vendas">
                                                 <i className="fas fa-dollar-sign mr-1"></i>
                                                 Vendas
                                             </Link>
                                         </li>
                                     </ul>
-                                    <div className="input-group shadow-sm">
-                                        <input type="text" className="form-control" />
-                                        <div className="input-group-append">
-                                            <button className="btn btn-dark" type="button">
-                                                <i className="fas fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

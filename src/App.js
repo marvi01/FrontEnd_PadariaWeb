@@ -17,6 +17,10 @@ import Config from './Components/User/Perfil/Config/Config';
 import AddProd from './Components/User/Produto/AddProd/AddProd';
 import UpdateProd from './Components/User/Produto/UpdateProd/UpdateProd';
 import teste from './Components/User/teste';
+import PedidoEspec from './Components/User/Perfil/MeusPedidos/PedidoEspec';
+import Vendas from './Components/Admin/Vendas/Vendas';
+import Pedidos from './Components/Admin/Pedidos/Pedidos';
+import VendaEspec from './Components/Admin/Vendas/VendaEspec';
 function App() {
   return (
     <div className="corpo">
@@ -42,6 +46,10 @@ function App() {
         <Route path = "/ConfirmaCompra" exact component = {ConfirmCompra}/>
         <Route path = "/Perfil/Endereço/AlterarEnderco/:id" exact component = {AltEndereco}/>
         <Route path = "/teste" exact component = {teste}/>
+        <Route path = "/Perfil/MeusPedidos/Pedido/:id" exact component = {PedidoEspec}  />
+        <Route path = "/Vendas" exact component = {Vendas} />
+        <Route path = "/Pedidos" exact component = {Pedidos} />
+        <Route path = "/Admin/Venda/:id" exact component ={VendaEspec}/>
       </Switch>
       </div>
       

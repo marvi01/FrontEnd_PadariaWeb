@@ -55,17 +55,20 @@ class AdminProduto extends Component {
                         <h3 className="card-text"> R${item.valor.toFixed(2).replace(".", ",")}</h3>
                         <Link to={`AtualizarProduto/${item.id}`} className="btn btn-warning ">Editar</Link>
                         <Link onClick={() => {
-                                let token = JSON.parse(sessionStorage.getItem('JWT_token'));
-                                fetch("http://localhost:8000/api/Produtos/" + item.id, {
-                                    method: "delete",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                        "Authorization": "Bearer " + token.data.access_token
-                                    }
-                                })
-                                    .then(() => { alert("Deletado com sucesso "); window.location.reload() })
-                                    .catch(erro => this.setState(erro));
-                            }} className="btn btn-danger ">Excluir</Link>
+                            let token = JSON.parse(sessionStorage.getItem('JWT_token'));
+                            fetch("http://localhost:8000/api/Produtos/" + item.id, {
+                                method: "delete",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    "Authorization": "Bearer " + token.data.access_token
+                                }
+                            }).then(() => data.json().then(data => {
+                                    console.log(data);
+                                    alert("Deletado com sucesso ");
+                                    window.location.reload();
+                                }))
+                                .catch(erro => this.setState(erro));
+                        }} className="btn btn-danger ">Excluir</Link>
                     </div>
                 </div>
             )

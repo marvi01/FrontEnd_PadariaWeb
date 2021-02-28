@@ -51,8 +51,6 @@ class Produto extends Component {
     const obj = this.state.status;
     if (data && obj === 200) {
       let admin = sessionStorage.getItem('admin');
-      console.log(admin);
-
       if (admin === '1') {
         return (
           <div>
@@ -85,8 +83,6 @@ class Produto extends Component {
       </div>)
     }
   }
-
-
   //
   render() {
     return (
