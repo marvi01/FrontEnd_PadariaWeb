@@ -10,7 +10,7 @@ class Cadastro extends Component {
         "email": "",
         "password": "",
         "password_confirmation": "",
-        "admin": "1"
+        "admin": "0"
       },
       redirect: false
     }

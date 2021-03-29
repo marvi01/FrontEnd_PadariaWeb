@@ -102,7 +102,7 @@ class UpdateProd extends Component {
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
-                                            <label htmlFor="inputEmail4">Nome do Produto</label>
+                                            <label htmlFor="nomeProd">Nome do Produto</label>
                                             <input name="nomeProd" onChange={this.handleInputChange} defaultValue={this.state.data.nomeProd} type="text" className="form-control" id="inputEminputText2" />
                                         </div>
                                     </div>

@@ -49,7 +49,7 @@ class AdminProduto extends Component {
         if (data && obj === 200) {
             const Prod = data.map((item, indice) => (
                 <div key={indice} className="card tamanho group" >
-                    <img className="card-img-top img-fluid " src={"https://i.ibb.co/" + item.imagem} alt="alt" />
+                    <img className="card-img-top img-fluid " src={"data:imagem/png;base64, " + item.imagem} alt="alt" />
                     <div align="center" className="body card-body">
                         <h4 className="card-title">{item.nomeProd}</h4>
                         <h3 className="card-text"> R${item.valor.toFixed(2).replace(".", ",")}</h3>

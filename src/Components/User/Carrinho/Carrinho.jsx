@@ -98,7 +98,7 @@ export default function Carrinho(props) {
                     <tr key={indice}>
                         <th scope="row">{indice + 1}</th>
                         <td>
-                            <img src={"https://i.ibb.co/" + item.imagem} className="img-tamanho mr-3" alt="..." />
+                            <img src={"data:imagem/png;base64, " + item.imagem} className="img-tamanho mr-3" alt="..." />
                         </td>
                         <td>{item.nomeProd}</td>
                         <td>{item.quantidade}</td>
