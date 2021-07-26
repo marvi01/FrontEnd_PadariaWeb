@@ -44,7 +44,7 @@ class Cadastro extends Component {
             </div>
             <div className="col col-md-4">
               <label>Confirme sua senha</label>
-              <input onChange={this.handleInputChange} name="password_confirmation" type="passwordConfirm" className="form-control" id="inputConfirmPassword4" />
+              <input onChange={this.handleInputChange} name="password_confirmation" type="password" className="form-control" id="inputConfirmPassword4" />
             </div>
           </div>
           <br/>

@@ -93,7 +93,8 @@ class AddProd extends Component {
             if (data.ok) {
               this.setState({ redirect: true });
               console.log(data);
-              alert('Produto cadastrado com sucesso')
+              alert('Produto cadastrado com sucesso');
+              window.location.replace("http://localhost:3000/")
               return data.json();
     
             } else {

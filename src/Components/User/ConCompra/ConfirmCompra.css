@@ -10,3 +10,22 @@
     margin: 2rem;
     padding: 1rem;
 }
+#clicavel{
+    cursor: pointer;
+    }
+    
+    #clicavel:active{
+    color: blue;
+    }
+    #clicavel1{
+        cursor: pointer;
+        }
+        
+        #clicavel1:active{
+        color: blue;
+        }
+
+        .trabalheSubEsqTitulo:focus {
+            color: blue;
+            outline: none;
+          }

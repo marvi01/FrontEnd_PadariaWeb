@@ -64,10 +64,11 @@ class AdminProduto extends Component {
                                 }
                             }).then(() => data.json().then(data => {
                                     console.log(data);
-                                    alert("Deletado com sucesso ");
-                                    window.location.reload();
+                                    
                                 }))
                                 .catch(erro => this.setState(erro));
+                                alert("Deletado com sucesso ");
+                                window.location.reload();
                         }} className="btn btn-danger ">Excluir</Link>
                     </div>
                 </div>

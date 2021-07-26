@@ -24,7 +24,8 @@ class Confirmvenda extends Component {
         "Endereco_id": 0,
         "users_id": 0,
         "observacoes": "",
-        "confirm": 0
+        "confirm": 0,
+        "cartao":null
       },
       compra: {
         "venda_id": 0,
@@ -174,23 +175,23 @@ class Confirmvenda extends Component {
       <div>
         <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li className="nav-item" role="presentation">
-            <a onClick={() => {
+            <a tabIndex="0" id="clicavel1" onClick={() => {
               this.setState(prevState => ({
                 venda: { ...prevState.venda, cartao: false }
               }));
               console.log(this.state.venda);
             }
-            } className="nav-link  " id="pills-home-tab" venda-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">
+            } className="nav-link  trabalheSubEsqTitulo" venda-toggle="pill" Cli role="tab" aria-controls="pills-home" aria-selected="false">
               <i className="far fa-money-bill-alt"></i> Dinheiro</a>
           </li>
           <li className="nav-item" role="presentation">
-            <a onClick={() => {
+            <a tabIndex="0" id="clicavel" onClick={() => {
               this.setState(prevState => ({
                 venda: { ...prevState.venda, cartao: true }
               }));
               console.log(this.state.venda);
             }
-            } className="nav-link" id="pills-profile-tab" venda-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+            } className="nav-link trabalheSubEsqTitulo" venda-toggle="pill" role="tab" aria-controls="pills-profile" aria-selected="false">
               <i className="far fa-credit-card"> Cartão</i>
             </a>
           </li>
@@ -295,7 +296,7 @@ class Confirmvenda extends Component {
           </div>
           {this.produtos()}
           {this.formPagamento()}
-          {this.obs()}
+          {this.obs()}<br/>
           <button type="submit" className="btn btn-success mb-6" >Confirmar compra</button>
         </fieldset>
       </form>
